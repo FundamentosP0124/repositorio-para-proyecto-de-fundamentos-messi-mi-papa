@@ -13,7 +13,7 @@ string nombrejugador2();
 void listadonombres(string nombre1,string nombre2);
 
 //variables que use globalmente
-string namejugador,namejugador2;
+string namejugador,namejugador2; //prueba
 
 
 int main ()
