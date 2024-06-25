@@ -33,7 +33,8 @@ int main ()
         cout << "2. 1vs1.\n";
         cout << "3. Ayuda.\n";
         cout << "4. Integrantes.\n";
-        cout << "5. Salir";
+        cout << "5. Reglas. \n" ;
+        cout << "6. Salir";
         cout << "\n\n";
 
         cin >> opcion;
@@ -186,9 +187,21 @@ int main ()
         case 4:
             cout << "Nombre: Andres Rodolfo Lopez Menjivar\n";
             cout << "Carnet: 00084724\n\n\n";
+            cout << "Nombre: Hugo Steven Maldonado Cordova\n";
+            cout << "Carnet: 00047924\n\n\n";
+            cout << "Nombre: Gabriel Enrque Mejia Castillo\n";
+            cout << "Carnet: 00063924\n\n\n";
             break;
 
+
         case 5:
+            cout << "Para jugar el juego de: Piedra, papel, tijera, lagarto y spock considere lo siguiente:\n\n";
+            cout << "Piedra, papel y tijera siguen su misma logica.\n";
+            cout << "Spock) Le gana a piedra y a las tijeras. Y pierde con el papel y con el lagarto. \n";
+            cout << "Lagarto) Le gana a spock y a papel. Y pierde con las tijeras y con la piedra \n\n";
+            break;
+
+        case 6:
             cout << "Saliendo del juego...";
             break;
 
@@ -196,7 +209,7 @@ int main ()
             cout << "Ingresa una opcion valida\n";
             break;
         }
-    } while (opcion!=5);
+    } while (opcion!=6);
     
     return 0;
 }
