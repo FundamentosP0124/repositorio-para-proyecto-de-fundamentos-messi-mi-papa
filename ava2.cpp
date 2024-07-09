@@ -3,41 +3,36 @@
 using namespace std;
 
 //prototipo de funciones
-char eleccionjugador();
-char eleccionjugador2();
-char eleccionjugador_lvl2();
-char eleccionjugador2_lvl2();
-char eleccioncomputadora();
-char eleccioncomputadora_lvl2();
-void mostrareleccion(char eleccion);
-void mostrareleccion_lvl2(char eleccion);
-void mostrarganador(char eleccion1, char eleccion2);
-void mostrarganador_1v1(char eleccion1, char eleccion2);
-void mostrarganador_lvl2(char eleccion1, char eleccion2);
-void mostrarganador_lvl2_1v1(char eleccion1, char eleccion2);
-string nombrejugador();
-string nombrejugador2();
-void listadonombres(string nombre1,string nombre2);
+char eleccionJugador();
+char eleccionJugador2();
+char eleccionJugador_lvl2();
+char eleccionJugador2_lvl2();
+char eleccionComputadora();
+char eleccionComputadora_lvl2();
+void mostrarEleccion(char eleccion);
+void mostrarEleccion_lvl2(char eleccion);
+void mostrarGanador(char eleccion1, char eleccion2);
+void mostrarGanador_1v1(char eleccion1, char eleccion2);
+void mostrarGanador_lvl2(char eleccion1, char eleccion2);
+void mostrarGanador_lvl2_1v1(char eleccion1, char eleccion2);
+string nombreJugador();
+string nombreJugador2();
+void listadoNombres(string nombre1,string nombre2);
+void mostrarAyuda();
+void menuPrincipal();
 
 //variables que use globalmente
-string namejugador,namejugador2; //prueba
+string nameJugador,nameJugador2; //prueba
 
 
 int main ()
 {
-    char eleccionplayer, eleccioncomputer, eleccionplayer2;
+    char eleccionPlayer, eleccionComputer, eleccionPlayer2;
     int opcion;
 
     do
     {
-        cout << "Bienvenido, elija una de las siguientes opciones.\n";
-        cout << "1. Juega contra la maquina.\n";
-        cout << "2. 1vs1.\n";
-        cout << "3. Ayuda.\n";
-        cout << "4. Integrantes.\n";
-        cout << "5. Reglas. \n" ;
-        cout << "6. Salir";
-        cout << "\n\n";
+        menuPrincipal();
 
         cin >> opcion;
         cout << "\n\n";
@@ -48,7 +43,7 @@ int main ()
             do
             {
             cout << "1. Piedra, papel o tijera.\n";
-            cout << "2. Piedra, papel, tijera, lagarto, spock.\n";
+            cout << "2. Piedra, papel, tijera, lagarto o spock.\n";
             cout << "\n\n";
 
             cin >> opcion;
@@ -58,42 +53,42 @@ int main ()
             switch (opcion)
             {
             case 1:
-                namejugador=nombrejugador();
+                nameJugador=nombreJugador();
                 cout << "\n";
-                eleccionplayer=eleccionjugador(); //asigno las funciones a una variable para poderlas
+                eleccionPlayer=eleccionJugador(); //asigno las funciones a una variable para poderlas
                                             // utilizar despues
 
                 cout << "\n";
 
-                cout << namejugador<<": ";  // asi como en este caso
-                mostrareleccion(eleccionplayer);
+                cout << nameJugador<<": ";  // asi como en este caso
+                mostrarEleccion(eleccionPlayer);
 
-                eleccioncomputer=eleccioncomputadora();
+                eleccionComputer=eleccionComputadora();
 
                 cout << "Computadora: ";
-                mostrareleccion(eleccioncomputer);
+                mostrarEleccion(eleccionComputer);
 
-                mostrarganador(eleccionplayer,eleccioncomputer);
+                mostrarGanador(eleccionPlayer,eleccionComputer);
                 cout << "\n";
                 break;
 
             case 2:
-                namejugador=nombrejugador();
+                nameJugador=nombreJugador();
                 cout << "\n";
-                eleccionplayer=eleccionjugador_lvl2(); //asigno las funciones a una variable para poderlas
+                eleccionPlayer=eleccionJugador_lvl2(); //asigno las funciones a una variable para poderlas
                                             // utilizar despues
 
                 cout << "\n";
 
-                cout << namejugador<<": ";  // asi como en este caso
-                mostrareleccion_lvl2(eleccionplayer);
+                cout << nameJugador<<": ";  // asi como en este caso
+                mostrarEleccion_lvl2(eleccionPlayer);
 
-                eleccioncomputer=eleccioncomputadora_lvl2();
+                eleccionComputer=eleccionComputadora_lvl2();
 
                 cout << "Computadora: ";
-                mostrareleccion_lvl2(eleccioncomputer);
+                mostrarEleccion_lvl2(eleccionComputer);
 
-                mostrarganador_lvl2(eleccionplayer,eleccioncomputer);
+                mostrarGanador_lvl2(eleccionPlayer,eleccionComputer);
                 cout << "\n";
                 break;
             
@@ -109,7 +104,7 @@ int main ()
             do
             {
                 cout << "1. Piedra, papel o tijera.\n";
-                cout << "2. Piedra, papel, tijera, lagarto, spock.\n";
+                cout << "2. Piedra, papel, tijera, lagarto o spock.\n";
                 cout << "\n\n"; 
 
                 cin >> opcion;
@@ -119,53 +114,53 @@ int main ()
                 switch (opcion)
                 {
                 case 1:
-                    namejugador=nombrejugador();
-                    namejugador2=nombrejugador2();
+                    nameJugador=nombreJugador();
+                    nameJugador2=nombreJugador2();
 
                     cout<<"\n\n";
-                    listadonombres(namejugador,namejugador2);
+                    listadoNombres(nameJugador,nameJugador2);
                     cout <<"\n";
 
-                    eleccionplayer=eleccionjugador();
-                    eleccionplayer2=eleccionjugador2();
+                    eleccionPlayer=eleccionJugador();
+                    eleccionPlayer2=eleccionJugador2();
 
                     cout <<"\n\n";
 
-                    cout << namejugador<<": "; 
-                    mostrareleccion(eleccionplayer);
+                    cout << nameJugador<<": "; 
+                    mostrarEleccion(eleccionPlayer);
 
-                    cout << namejugador2<<": "; 
-                    mostrareleccion(eleccionplayer2);
+                    cout << nameJugador2<<": "; 
+                    mostrarEleccion(eleccionPlayer2);
 
                     cout << "\n";
 
-                    mostrarganador_1v1(eleccionplayer, eleccionplayer2);
+                    mostrarGanador_1v1(eleccionPlayer, eleccionPlayer2);
 
                     cout << "\n";
                     break;
 
                 case 2:
-                    namejugador=nombrejugador();
-                    namejugador2=nombrejugador2();
+                    nameJugador=nombreJugador();
+                    nameJugador2=nombreJugador2();
 
                     cout<<"\n\n";
-                    listadonombres(namejugador,namejugador2);
+                    listadoNombres(nameJugador,nameJugador2);
                     cout <<"\n";
 
-                    eleccionplayer=eleccionjugador_lvl2();
-                    eleccionplayer2=eleccionjugador2_lvl2();
+                    eleccionPlayer=eleccionJugador_lvl2();
+                    eleccionPlayer2=eleccionJugador2_lvl2();
 
                     cout <<"\n\n";
 
-                    cout << namejugador<<": "; 
-                    mostrareleccion_lvl2(eleccionplayer);
+                    cout << nameJugador<<": "; 
+                    mostrarEleccion_lvl2(eleccionPlayer);
 
-                    cout << namejugador2<<": "; 
-                    mostrareleccion_lvl2(eleccionplayer2);
+                    cout << nameJugador2<<": "; 
+                    mostrarEleccion_lvl2(eleccionPlayer2);
 
                     cout << "\n";
 
-                    mostrarganador_lvl2_1v1(eleccionplayer, eleccionplayer2);
+                    mostrarGanador_lvl2_1v1(eleccionPlayer, eleccionPlayer2);
 
                     cout << "\n";
                     break;
@@ -179,11 +174,7 @@ int main ()
             break;
 
         case 3:
-            cout << "En el modo contra la maquina participa solamente un jugador y la maquina";
-            cout << " elige al azar su decision.\n";
-            cout << "En el modo '1vs1' participan dos jugadores que eligiran segun su criterio\n";
-            cout << "En 'Integrantes' salen las personas que participaron en el proyecto\n\n\n";
-            
+            mostrarAyuda(); 
             break;
 
         case 4:
@@ -215,7 +206,7 @@ int main ()
     
     return 0;
 }
-string nombrejugador()
+string nombreJugador()
 {
     string jugador;
 
@@ -227,11 +218,11 @@ string nombrejugador()
     // de "jugador"
 
 }
-char eleccionjugador()
+char eleccionJugador()
 {
     char eleccion;
 
-    cout << "\n" << namejugador << ", elige una opcion: \n\n";
+    cout << "\n" << nameJugador << ", elige una opcion: \n\n";
     cout << "Piedra - Papel - Tijera\n\n";
     do
     {
@@ -245,11 +236,11 @@ char eleccionjugador()
 
     
 }
-char eleccionjugador_lvl2()
+char eleccionJugador_lvl2()
 {
     char eleccion;
 
-    cout << "\n" << namejugador << ", elige una opcion: \n\n";
+    cout << "\n" << nameJugador << ", elige una opcion: \n\n";
     cout << "Piedra - Papel - Tijera - Lagarto - Spock\n\n";
     do
     {
@@ -263,11 +254,11 @@ char eleccionjugador_lvl2()
 
     return eleccion;
 }
-char eleccionjugador2_lvl2()
+char eleccionJugador2_lvl2()
 {
     char eleccion;
 
-    cout << "\n" << namejugador2 << ", elige una opcion: \n\n";
+    cout << "\n" << nameJugador2 << ", elige una opcion: \n\n";
     cout << "Piedra - Papel - Tijera - Lagarto - Spock\n\n";
     do
     {
@@ -281,7 +272,7 @@ char eleccionjugador2_lvl2()
 
     return eleccion;
 }
-char eleccioncomputadora()
+char eleccionComputadora()
 {
     srand(time(0));//utilice la libreria ctime ya que investigue como sacar un numero
                     //aleatorio y vi que se odia utilizar esto
@@ -305,7 +296,7 @@ char eleccioncomputadora()
         break;
     }
 }
-char eleccioncomputadora_lvl2()
+char eleccionComputadora_lvl2()
 {
     srand(time(0));//utilice la libreria ctime ya que investigue como sacar un numero
                     //aleatorio y vi que se odia utilizar esto
@@ -337,7 +328,7 @@ char eleccioncomputadora_lvl2()
         break;
     }
 }
-void mostrareleccion(char eleccion)
+void mostrarEleccion(char eleccion)
 {
     switch (eleccion)
     {
@@ -354,7 +345,7 @@ void mostrareleccion(char eleccion)
         break;
     }
 }
-void mostrareleccion_lvl2(char eleccion)
+void mostrarEleccion_lvl2(char eleccion)
 {
     switch (eleccion)
     {
@@ -379,7 +370,7 @@ void mostrareleccion_lvl2(char eleccion)
         break;
     }
 }
-void mostrarganador(char eleccion1, char eleccion2)
+void mostrarGanador(char eleccion1, char eleccion2)
 {
     switch (eleccion1)  //aca esta la logica para sacar al ganador
     {
@@ -390,33 +381,33 @@ void mostrarganador(char eleccion1, char eleccion2)
         }
         else if (eleccion2=='p')
         {
-            cout << namejugador << " Ha perdido\n";
+            cout << nameJugador << " Ha perdido\n";
         }
-        else cout << namejugador << " Ha ganado\n";
+        else cout << nameJugador << " Ha ganado\n";
 
         break;
 
     case 'p':
         if (eleccion2=='r')
         {
-            cout << namejugador << " Ha ganado\n";
+            cout << nameJugador << " Ha ganado\n";
         }
         else if (eleccion2=='p')
         {
             cout << "Empate\n";
         }
-        else cout << namejugador << " Ha perdido\n";
+        else cout << nameJugador << " Ha perdido\n";
 
         break;
 
      case 't':
         if (eleccion2=='r')
         {
-            cout << namejugador << " Ha perdido\n";
+            cout << nameJugador << " Ha perdido\n";
         }
         else if (eleccion2=='p')
         {
-            cout << namejugador << " Ha Ganado\n";
+            cout << nameJugador << " Ha Ganado\n";
         }
         else cout <<"Empate\n";
 
@@ -425,7 +416,7 @@ void mostrarganador(char eleccion1, char eleccion2)
     }
 
 }
-void mostrarganador_lvl2(char eleccion1, char eleccion2)
+void mostrarGanador_lvl2(char eleccion1, char eleccion2)
 {
     switch (eleccion1)  //aca esta la logica para sacar al ganador
     {
@@ -436,24 +427,24 @@ void mostrarganador_lvl2(char eleccion1, char eleccion2)
         }
         else if (eleccion2=='p')
         {
-            cout << namejugador << " Ha perdido\n";
+            cout << nameJugador << " Ha perdido\n";
         }
         else if (eleccion2=='l')
         {
-            cout << namejugador << " Ha ganado\n";
+            cout << nameJugador << " Ha ganado\n";
         }
         else if (eleccion2=='s')
         {
-            cout << namejugador << " Ha perdido\n";
+            cout << nameJugador << " Ha perdido\n";
         }
-        else cout << namejugador << " Ha ganado\n";
+        else cout << nameJugador << " Ha ganado\n";
 
         break;
 
     case 'p':
         if (eleccion2=='r')
         {
-            cout << namejugador << " Ha ganado\n";
+            cout << nameJugador << " Ha ganado\n";
         }
         else if (eleccion2=='p')
         {
@@ -461,32 +452,32 @@ void mostrarganador_lvl2(char eleccion1, char eleccion2)
         }
         else if (eleccion2=='l')
         {
-            cout << namejugador << " Ha perdido\n";
+            cout << nameJugador << " Ha perdido\n";
         }
         else if (eleccion2=='s')
         {
-            cout << namejugador << " Ha ganado\n";
+            cout << nameJugador << " Ha ganado\n";
         }
-        else cout << namejugador << " Ha perdido\n";
+        else cout << nameJugador << " Ha perdido\n";
 
         break;
 
      case 't':
         if (eleccion2=='r')
         {
-            cout << namejugador << " Ha perdido\n";
+            cout << nameJugador << " Ha perdido\n";
         }
         else if (eleccion2=='p')
         {
-            cout << namejugador << " Ha ganado\n";
+            cout << nameJugador << " Ha ganado\n";
         }
          else if (eleccion2=='l')
         {
-            cout << namejugador << " Ha ganado\n";
+            cout << nameJugador << " Ha ganado\n";
         }
         else if (eleccion2=='s')
         {
-            cout << namejugador << " Ha perdido\n";
+            cout << nameJugador << " Ha perdido\n";
         }
         else cout <<"Empate\n";
 
@@ -495,11 +486,11 @@ void mostrarganador_lvl2(char eleccion1, char eleccion2)
      case 'l':
         if (eleccion2=='r')
         {
-            cout << namejugador << " Ha perdido\n";
+            cout << nameJugador << " Ha perdido\n";
         }
         else if (eleccion2=='p')
         {
-            cout << namejugador << " Ha Ganado\n";
+            cout << nameJugador << " Ha Ganado\n";
         }
         else if (eleccion2=='l')
         {
@@ -507,37 +498,37 @@ void mostrarganador_lvl2(char eleccion1, char eleccion2)
         }
         else if (eleccion2=='s')
         {
-            cout << namejugador << " Ha ganado\n";
+            cout << nameJugador << " Ha ganado\n";
         }
-        else cout << namejugador<< " Ha perdido\n";
+        else cout << nameJugador<< " Ha perdido\n";
 
         break;
 
      case 's':
         if (eleccion2=='r')
         {
-            cout << namejugador << " Ha ganado\n";
+            cout << nameJugador << " Ha ganado\n";
         }
         else if (eleccion2=='p')
         {
-            cout << namejugador << " Ha perdido\n";
+            cout << nameJugador << " Ha perdido\n";
         }
         else if (eleccion2=='l')
         {
-            cout << namejugador << " Ha perdido\n";
+            cout << nameJugador << " Ha perdido\n";
         }
         else if (eleccion2=='s')
         {
             cout << "Empate\n";
         }
-        else cout << namejugador <<" Ha ganado\n";
+        else cout << nameJugador <<" Ha ganado\n";
 
         break;
     
     }
 
 }
-string nombrejugador2()
+string nombreJugador2()
 {
     string jugador; //lo mismo que nombreugador() solo que este es para el jugador 2 y 
                     //por ejemplo quite la palabra bienvenido
@@ -547,16 +538,16 @@ string nombrejugador2()
 
     return jugador;
 }
-void listadonombres(string nombre1,string nombre2)
+void listadoNombres(string nombre1,string nombre2)
 {
     cout << "Jugador 1: " << nombre1<<endl; //esto es solo pq piden que mostremos el listado de los
     cout << "Jugador 2: " << nombre2<<endl; //participantes
 }
-char eleccionjugador2()
+char eleccionJugador2()
 {
     char eleccion; //lo mismo que eleccionjugador() pero para jugador 2
 
-    cout << "\n" << namejugador2 << ", elige una opcion: \n\n";
+    cout << "\n" << nameJugador2 << ", elige una opcion: \n\n";
     cout << "Piedra - Papel - Tijera\n\n";
     do
     {
@@ -568,7 +559,7 @@ char eleccionjugador2()
 
     return eleccion;
 }
-void mostrarganador_1v1(char eleccion1, char eleccion2)
+void mostrarGanador_1v1(char eleccion1, char eleccion2)
 {
     switch (eleccion1)  //aca esta la logica para sacar al ganador
     {
@@ -579,33 +570,33 @@ void mostrarganador_1v1(char eleccion1, char eleccion2)
         }
         else if (eleccion2=='p')
         {
-            cout << namejugador2 << " Ha ganado\n";
+            cout << nameJugador2 << " Ha ganado\n";
         }
-        else cout << namejugador << " Ha ganado\n";
+        else cout << nameJugador << " Ha ganado\n";
 
         break;
 
     case 'p':
         if (eleccion2=='r')
         {
-            cout << namejugador << " Ha ganado\n";
+            cout << nameJugador << " Ha ganado\n";
         }
         else if (eleccion2=='p')
         {
             cout << "Empate\n";
         }
-        else cout << namejugador2 << " Ha ganado\n";
+        else cout << nameJugador2 << " Ha ganado\n";
 
         break;
 
      case 't':
         if (eleccion2=='r')
         {
-            cout << namejugador2 << " Ha ganado\n";
+            cout << nameJugador2 << " Ha ganado\n";
         }
         else if (eleccion2=='p')
         {
-            cout << namejugador << " Ha ganado\n";
+            cout << nameJugador << " Ha ganado\n";
         }
         else cout <<"Empate\n";
 
@@ -613,7 +604,7 @@ void mostrarganador_1v1(char eleccion1, char eleccion2)
     
     }
 }
-void mostrarganador_lvl2_1v1(char eleccion1, char eleccion2)
+void mostrarGanador_lvl2_1v1(char eleccion1, char eleccion2)
 {
   switch (eleccion1)  //aca esta la logica para sacar al ganador
     {
@@ -624,24 +615,24 @@ void mostrarganador_lvl2_1v1(char eleccion1, char eleccion2)
         }
         else if (eleccion2=='p')
         {
-            cout << namejugador2 << " Ha ganado\n";
+            cout << nameJugador2 << " Ha ganado\n";
         }
         else if (eleccion2=='l')
         {
-            cout << namejugador << " Ha ganado\n";
+            cout << nameJugador << " Ha ganado\n";
         }
         else if (eleccion2=='s')
         {
-            cout << namejugador2 << " Ha ganado\n";
+            cout << nameJugador2 << " Ha ganado\n";
         }
-        else cout << namejugador << " Ha ganado\n";
+        else cout << nameJugador << " Ha ganado\n";
 
         break;
 
     case 'p':
         if (eleccion2=='r')
         {
-            cout << namejugador << " Ha ganado\n";
+            cout << nameJugador << " Ha ganado\n";
         }
         else if (eleccion2=='p')
         {
@@ -649,32 +640,32 @@ void mostrarganador_lvl2_1v1(char eleccion1, char eleccion2)
         }
         else if (eleccion2=='l')
         {
-            cout << namejugador2 << " Ha ganado\n";
+            cout << nameJugador2 << " Ha ganado\n";
         }
         else if (eleccion2=='s')
         {
-            cout << namejugador << " Ha ganado\n";
+            cout << nameJugador << " Ha ganado\n";
         }
-        else cout << namejugador2 << " Ha ganado\n";
+        else cout << nameJugador2 << " Ha ganado\n";
 
         break;
 
      case 't':
         if (eleccion2=='r')
         {
-            cout << namejugador2 << " Ha ganado\n";
+            cout << nameJugador2 << " Ha ganado\n";
         }
         else if (eleccion2=='p')
         {
-            cout << namejugador << " Ha ganado\n";
+            cout << nameJugador << " Ha ganado\n";
         }
          else if (eleccion2=='l')
         {
-            cout << namejugador << " Ha ganado\n";
+            cout << nameJugador << " Ha ganado\n";
         }
         else if (eleccion2=='s')
         {
-            cout << namejugador2 << " Ha ganado\n";
+            cout << nameJugador2 << " Ha ganado\n";
         }
         else cout <<"Empate\n";
 
@@ -683,11 +674,11 @@ void mostrarganador_lvl2_1v1(char eleccion1, char eleccion2)
      case 'l':
         if (eleccion2=='r')
         {
-            cout << namejugador2 << " Ha ganado\n";
+            cout << nameJugador2 << " Ha ganado\n";
         }
         else if (eleccion2=='p')
         {
-            cout << namejugador << " Ha ganado\n";
+            cout << nameJugador << " Ha ganado\n";
         }
         else if (eleccion2=='l')
         {
@@ -695,32 +686,62 @@ void mostrarganador_lvl2_1v1(char eleccion1, char eleccion2)
         }
         else if (eleccion2=='s')
         {
-            cout << namejugador << " Ha ganado\n";
+            cout << nameJugador << " Ha ganado\n";
         }
-        else cout << namejugador2 << " Ha ganado\n";
+        else cout << nameJugador2 << " Ha ganado\n";
 
         break;
 
      case 's':
         if (eleccion2=='r')
         {
-            cout << namejugador << " Ha ganado\n";
+            cout << nameJugador << " Ha ganado\n";
         }
         else if (eleccion2=='p')
         {
-            cout << namejugador2 << " Ha ganado\n";
+            cout << nameJugador2 << " Ha ganado\n";
         }
         else if (eleccion2=='l')
         {
-            cout << namejugador2 << " Ha ganado\n";
+            cout << nameJugador2 << " Ha ganado\n";
         }
         else if (eleccion2=='s')
         {
             cout << "Empate\n";
         }
-        else cout << namejugador <<" Ha ganado\n";
+        else cout << nameJugador <<" Ha ganado\n";
 
         break;
     
     }  
+}
+void mostrarAyuda()
+{
+            cout << "=== Ayuda ===\n\n";
+            cout << "Bienvenido a Piedra, Papel, Tijera, Lagarto, Spock!\n\n";
+            cout << "El objetivo del juego es derrotar a tu oponente seleccionando una opcion que venza a la opcion elegida por el otro jugador.\n";
+            cout << "Puedes jugar contra la computadora o contra otro jugador.\n\n";
+            cout << "=== Modo de Juego ===\n";
+            cout << "1. Jugar contra la computadora:\n";
+            cout << "   - En este modo, juegas contra una computadora que elige su jugada de manera aleatoria.\n";
+            cout << "   - Elige entre las opciones disponibles y trata de vencer a la computadora.\n\n";
+            cout << "2. 1 vs 1:\n";
+            cout << "   - En este modo, dos jugadores humanos compiten entre si.\n";
+            cout << "   - Ambos jugadores eligen sus jugadas y el resultado se muestra inmediatamente.\n\n";
+            cout << "=== Consejos ===\n";
+            cout << "1. Trata de anticipar la jugada de tu oponente.\n";
+            cout << "2. No elijas la misma opcion repetidamente, tu oponente podria notarlo y aprovecharse.\n";
+            cout << "3. Juega de manera impredecible para aumentar tus probabilidades de ganar.\n\n";
+            cout << "Diviertete y buena suerte!\n\n";    
+}
+void menuPrincipal()
+{
+        cout << "Bienvenido, elija una de las siguientes opciones.\n";
+        cout << "1. Juega contra la maquina.\n";
+        cout << "2. 1vs1.\n";
+        cout << "3. Ayuda.\n";
+        cout << "4. Integrantes.\n";
+        cout << "5. Reglas. \n" ;
+        cout << "6. Salir";
+        cout << "\n\n";
 }
