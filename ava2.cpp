@@ -1,5 +1,5 @@
 #include <iostream>
-#include <ctime>
+#include <ctime> //libreria utilizada solamente para la eleccion de la computadora
 using namespace std;
 
 //prototipo de funciones
@@ -521,7 +521,7 @@ void mostrarGanador_lvl2(char eleccion1, char eleccion2)
 }
 string nombreJugador2()
 {
-    string jugador; //lo mismo que nombreugador() solo que este es para el jugador 2 y 
+    string jugador; //lo mismo que nombrejugador() solo que este es para el jugador 2 y 
                     //por ejemplo quite la palabra bienvenido
 
     cout << "Ingrese el nombre del jugador 2: ";
