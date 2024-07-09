@@ -20,9 +20,12 @@ string nombreJugador2();
 void listadoNombres(string nombre1,string nombre2);
 void mostrarAyuda();
 void menuPrincipal();
+void subMenu();
+void integrantes();
+void reglas();
 
 //variables que use globalmente
-string nameJugador,nameJugador2; //prueba
+string nameJugador,nameJugador2; 
 
 
 int main ()
@@ -42,9 +45,7 @@ int main ()
         case 1:
             do
             {
-            cout << "1. Piedra, papel o tijera.\n";
-            cout << "2. Piedra, papel, tijera, lagarto o spock.\n";
-            cout << "\n\n";
+            subMenu();
 
             cin >> opcion;
 
@@ -103,9 +104,7 @@ int main ()
         case 2:
             do
             {
-                cout << "1. Piedra, papel o tijera.\n";
-                cout << "2. Piedra, papel, tijera, lagarto o spock.\n";
-                cout << "\n\n"; 
+                subMenu();
 
                 cin >> opcion;
 
@@ -178,20 +177,12 @@ int main ()
             break;
 
         case 4:
-            cout << "Nombre: Andres Rodolfo Lopez Menjivar\n";
-            cout << "Carnet: 00084724\n\n\n";
-            cout << "Nombre: Hugo Steven Maldonado Cordova\n";
-            cout << "Carnet: 00047924\n\n\n";
-            cout << "Nombre: Gabriel Enrque Mejia Castillo\n";
-            cout << "Carnet: 00063924\n\n\n";
+            integrantes();
             break;
 
 
         case 5:
-            cout << "Para jugar el juego de: Piedra, papel, tijera, lagarto y spock considere lo siguiente:\n\n";
-            cout << "Piedra, papel y tijera siguen su misma logica.\n";
-            cout << "Spock) Le gana a piedra y a las tijeras. Y pierde con el papel y con el lagarto. \n";
-            cout << "Lagarto) Le gana a spock y a papel. Y pierde con las tijeras y con la piedra \n\n";
+            reglas ();
             break;
 
         case 6:
@@ -744,4 +735,26 @@ void menuPrincipal()
         cout << "5. Reglas. \n" ;
         cout << "6. Salir";
         cout << "\n\n";
+}
+void integrantes()
+{
+            cout << "Nombre: Andres Rodolfo Lopez Menjivar\n";
+            cout << "Carnet: 00084724\n\n\n";
+            cout << "Nombre: Hugo Steven Maldonado Cordova\n";
+            cout << "Carnet: 00047924\n\n\n";
+            cout << "Nombre: Gabriel Enrque Mejia Castillo\n";
+            cout << "Carnet: 00063924\n\n\n";
+}
+void reglas()
+{
+            cout << "Para jugar el juego de: Piedra, papel, tijera, lagarto y spock considere lo siguiente:\n\n";
+            cout << "Piedra, papel y tijera siguen su misma logica.\n";
+            cout << "Spock) Le gana a piedra y a las tijeras. Y pierde con el papel y con el lagarto. \n";
+            cout << "Lagarto) Le gana a spock y a papel. Y pierde con las tijeras y con la piedra \n\n";
+}
+void subMenu()
+{
+                cout << "1. Piedra, papel o tijera.\n";
+                cout << "2. Piedra, papel, tijera, lagarto o spock.\n";
+                cout << "\n\n"; 
 }
